@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -16,6 +15,7 @@ public class FishMove : MonoBehaviour
     public CameraButton CBScript;
 
     public int random;
+
     public void Start()
     {
         
@@ -33,10 +33,7 @@ public class FishMove : MonoBehaviour
 
     public void Update()
     {
-
         agent.SetDestination(target.position);
-
-        
     }
 
     public void OnTriggerEnter2D(Collider2D other)

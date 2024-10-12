@@ -1,10 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraButton : MonoBehaviour
 {
-
     public GameObject CameraUIOverlay;
     public GameObject Player;
     public GameObject PlayerCamera;

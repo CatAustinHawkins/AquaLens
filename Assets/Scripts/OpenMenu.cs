@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class OpenMenu : MonoBehaviour
 {
@@ -9,12 +6,6 @@ public class OpenMenu : MonoBehaviour
     public bool MenuOpen;
 
     public AudioSource Select;
-    public AudioSource[] Bubbles;
-
-    public void Start()
-    {
-        StartCoroutine(BubbleNoise());
-    }
 
     private void Update()
     {
@@ -23,7 +14,6 @@ public class OpenMenu : MonoBehaviour
             Open();
         }
     }
-
 
     public void Open()
     {
@@ -39,14 +29,5 @@ public class OpenMenu : MonoBehaviour
             MenuOpen = false;
             Select.Play();
         }
-    }
-
-    IEnumerator BubbleNoise()
-    {
-        int random = Random.Range(0, 4);
-        Bubbles[random].Play();
-        int random2 = Random.Range(10, 25);
-        yield return new WaitForSecondsRealtime(random2);
-        StartCoroutine(BubbleNoise());
     }
 }

@@ -1,26 +1,24 @@
 using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class CameraCheck : MonoBehaviour
 {
-    public GameObject PJ;
-    public GameObject WB;
-    public GameObject BRF;
-    public GameObject PS;
-    public GameObject AT;
-    public GameObject SR;
-    public GameObject ABR;
-    public GameObject POF;
-    public GameObject PB;
-    public GameObject BS;
-    public GameObject C;
-    public GameObject PF;
-    public GameObject YC;
-    public GameObject SAB;
+    public GameObject PJ; //Pink Jellyfish
+    public GameObject WB; //White Bunny
+    public GameObject BRF; //Blue Red Fish
+    public GameObject PS; //Purple Seahorse
+    public GameObject AT; //Sea Angel - Trans Colours
+    public GameObject SR; //Red Seahorse
+    public GameObject ABR; //Sea Angel - Blue and Red
+    public GameObject POF; // Purple Orange Fish
+    public GameObject PB; //Purple Seabunny
+    public GameObject BS; //Blue Seahorse
+    public GameObject C; //Normal Crab
+    public GameObject PF; //Purple Jellyfish
+    public GameObject YC; //Yellow Crab
+    public GameObject SAB; //Sea Angel - Blue and Yellow
 
     public GameObject[] screenshotPreview;
     public int SC;
@@ -37,6 +35,7 @@ public class CameraCheck : MonoBehaviour
 
     public bool picturetaken;
 
+    //Checking if they are in range
     public bool PJinRange;
     public bool WBinRange;
     public bool BRFinRange;
@@ -202,7 +201,6 @@ public class CameraCheck : MonoBehaviour
 
     public void Update()
     {
-
         if (Input.GetKey(KeyCode.C) && !cooldown)
         {
             StartCoroutine(TakeScreenshot());
@@ -272,7 +270,7 @@ public class CameraCheck : MonoBehaviour
         Sprite screenshotSprite = Sprite.Create(screenshotTexture, new Rect(0, 0, Screen.width, Screen.height), new Vector2(0.5f, 0.5f));
 
 
-        if(SC == 27)
+        if(SC == 27) //if player goes over 27 images, start rewriting old ones
         {
             SC = 0;
         }
@@ -288,6 +286,8 @@ public class CameraCheck : MonoBehaviour
         CameraUIOverlay.SetActive(true);
         CameraButton.SetActive(true);
 
+
+        //If the camera lense is in range when a photo is taken, mark the fish as collected
         if (PJinRange)
         {
             PJ.SetActive(false);
